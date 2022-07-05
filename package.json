@@ -1,0 +1,26 @@
+{
+  "name": "infralytics-charts",
+  "version": "0.1.0",
+  "description": "Plotly.js charts in React for Infralytics",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brammitch/infralytics-charts.git"
+  },
+  "keywords": [
+    "plotly",
+    "react",
+    "infralytics",
+    "data",
+    "visualization"
+  ],
+  "author": "Brandon M. Mitchell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brammitch/infralytics-charts/issues"
+  },
+  "homepage": "https://github.com/brammitch/infralytics-charts#readme"
+}
