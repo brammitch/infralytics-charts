@@ -1,5 +1,5 @@
-import { BarTrace } from "../../../dist/esm";
-import DoubleBar from "../../../dist/esm/charts/DoubleBar";
+import { BarTrace } from "../../../dist";
+import DoubleBar from "../../../dist/charts/DoubleBar";
 
 import "./App.css";
 

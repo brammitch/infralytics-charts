@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import { BarTrace } from "../../../dist/esm";
-import styles from "../styles/Home.module.css";
 import dynamic from "next/dynamic";
-const DoubleBar = dynamic(() => import("../../../dist/esm/charts/DoubleBar"), {
+import Head from "next/head";
+import { BarTrace } from "../../../dist";
+import styles from "../styles/Home.module.css";
+
+const DoubleBar = dynamic(() => import("../../../dist/charts/DoubleBar"), {
   ssr: false,
 });
-const TripleBar = dynamic(() => import("../../../dist/esm/charts/TripleBar"), {
+const TripleBar = dynamic(() => import("../../../dist/charts/TripleBar"), {
   ssr: false,
 });
 
