@@ -1,4 +1,6 @@
-import { BarTrace, DoubleBar } from "../../../dist";
+import { BarTrace } from "../../../dist/esm";
+import DoubleBar from "../../../dist/esm/charts/DoubleBar";
+
 import "./App.css";
 
 function App() {

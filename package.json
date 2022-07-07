@@ -22,7 +22,7 @@
   ],
   "main": "dist/esm/index.js",
   "module": "dist/cjs/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "keywords": [
     "plotly",
     "react",

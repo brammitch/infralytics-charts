@@ -38,10 +38,9 @@ export default function TripleBar(props: TripleBarProps) {
         yaxis: "y2",
         hovertext: props.b1.hovertext ?? props.b1.name,
         hoverinfo: "x+y+text",
-        offset: -0.375,
         x: props.b1.x,
         y: props.b1.y,
-        width: 0.4,
+        width: 0.45,
         marker: {
           color: props.b1.color,
           line: {
@@ -63,9 +62,10 @@ export default function TripleBar(props: TripleBarProps) {
         yaxis: "y2",
         hovertext: props.b2.hovertext ?? props.b2.name,
         hoverinfo: "x+y+text",
+        offset: -0.225,
         x: props.b2.x,
         y: props.b2.y,
-        width: 0.4,
+        width: 0.45,
         marker: {
           color: props.b2.color,
           line: {
@@ -89,7 +89,7 @@ export default function TripleBar(props: TripleBarProps) {
         hoverinfo: "x+y+text",
         x: props.b3.x,
         y: props.b3.y,
-        width: 0.4,
+        width: 0.45,
         marker: {
           color: props.b3.color,
           line: {
