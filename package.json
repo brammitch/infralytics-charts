@@ -2,9 +2,15 @@
   "name": "infralytics-charts",
   "version": "0.1.0",
   "description": "Plotly.js charts in React for Infralytics",
-  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "test"
+    "build": "npx rollup -c rollup.config.js",
+    "watch": "npx rollup -c rollup.config.js -w"
   },
   "repository": {
     "type": "git",
@@ -22,5 +28,43 @@
   "bugs": {
     "url": "https://github.com/brammitch/infralytics-charts/issues"
   },
-  "homepage": "https://github.com/brammitch/infralytics-charts#readme"
+  "homepage": "https://github.com/brammitch/infralytics-charts#readme",
+  "dependencies": {
+    "color": "4.2.3",
+    "lodash.merge": "4.6.2",
+    "plotly.js": "^2.12.0",
+    "react-plotly.js": "^2.5.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.3",
+    "react-dom": ">=16.8.3",
+    "recharts": ">=1.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.6",
+    "@babel/plugin-transform-runtime": "7.18.6",
+    "@babel/preset-env": "7.18.6",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.18.6",
+    "@rollup/plugin-babel": "5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/color": "3.0.3",
+    "@types/lodash": "4.14.182",
+    "@types/node": "16.11.36",
+    "@types/plotly.js": "2.12.0",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "@types/react-plotly.js": "2.5.1",
+    "@typescript-eslint/eslint-plugin": "5.30.5",
+    "@typescript-eslint/parser": "5.30.5",
+    "eslint": "8.19.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.30.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "prettier": "2.7.1",
+    "rollup": "2.75.7",
+    "rollup-plugin-typescript2": "0.32.1",
+    "typescript": "4.7.4"
+  }
 }
