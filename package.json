@@ -13,14 +13,15 @@
     "url": "https://github.com/brammitch/infralytics-charts/issues"
   },
   "workspaces": [
-    "example",
+    "examples/cra",
+    "examples/next",
     "lib"
   ],
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/esm/index.js",
+  "module": "dist/cjs/index.js",
   "types": "dist/index.d.ts",
   "keywords": [
     "plotly",
@@ -32,19 +33,19 @@
   "scripts": {
     "build": "npm run clean && npm run build -w lib",
     "clean": "rimraf dist",
-    "example": "npm run dev -w example",
+    "demo:cra": "npm run start -w example-cra",
+    "demo:next": "npm run dev -w example-next",
     "watch": "npm run watch -w lib"
   },
   "dependencies": {
-    "color": "4.2.3",
-    "lodash.merge": "4.6.2",
     "plotly.js": "^2.12.0",
     "react-plotly.js": "^2.5.1"
   },
   "peerDependencies": {
+    "color": "^4.0.0",
+    "lodash.merge": "^4.6.2",
     "react": ">=16.8.3",
-    "react-dom": ">=16.8.3",
-    "recharts": ">=1.8.0"
+    "react-dom": ">=16.8.3"
   },
   "devDependencies": {
     "@types/node": "16.11.36",

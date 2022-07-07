@@ -1,5 +1,5 @@
 import Color from "color";
-import { merge } from "lodash";
+import merge from "lodash.merge";
 import { PlotData } from "plotly.js";
 import { useEffect, useState } from "react";
 import createPlotlyComponent from "react-plotly.js/factory";
@@ -8,9 +8,10 @@ import { BarTrace, RangeTrace, ThresholdTrace } from "../types";
 
 const Plot = createPlotlyComponent(Plotly);
 
-export interface MultiBarDoubleProps {
+export interface TripleBarProps {
   b1: BarTrace;
   b2: BarTrace;
+  b3: BarTrace;
   layoutProps?: Plotly.Layout;
   max?: number;
   range?: {
@@ -25,7 +26,7 @@ export interface MultiBarDoubleProps {
   };
 }
 
-export function MultiBarDouble(props: MultiBarDoubleProps): React.ReactNode {
+export default function TripleBar(props: TripleBarProps) {
   const [data, setData] = useState<Partial<PlotData>[]>([]);
   const [layout, setLayout] = useState<Partial<Plotly.Layout>>({});
 
@@ -75,6 +76,30 @@ export function MultiBarDouble(props: MultiBarDoubleProps): React.ReactNode {
           pattern: {
             fillmode: "overlay",
             fgcolor: Color(props.b2.color).lighten(0.2).hex(),
+            shape: "/",
+            solidity: 0.1,
+          },
+        },
+      },
+      {
+        name: props.b3.name,
+        type: "bar",
+        yaxis: "y2",
+        hovertext: props.b3.hovertext ?? props.b3.name,
+        hoverinfo: "x+y+text",
+        x: props.b3.x,
+        y: props.b3.y,
+        width: 0.4,
+        marker: {
+          color: props.b3.color,
+          line: {
+            color: Color(props.b3.color).darken(0.2).hex(),
+            width: 1,
+          },
+          opacity: 0.95,
+          pattern: {
+            fillmode: "overlay",
+            fgcolor: Color(props.b3.color).lighten(0.2).hex(),
             shape: "/",
             solidity: 0.1,
           },
@@ -197,6 +222,7 @@ export function MultiBarDouble(props: MultiBarDoubleProps): React.ReactNode {
   }, [
     props.b1,
     props.b2,
+    props.b3,
     props.layoutProps,
     props?.max,
     props.range,
