@@ -1,6 +1,6 @@
 {
   "name": "infralytics-charts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plotly.js charts in React for Infralytics",
   "author": "Brandon M. Mitchell",
   "license": "MIT",
