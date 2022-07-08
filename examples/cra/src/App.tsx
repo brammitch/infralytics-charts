@@ -1,5 +1,4 @@
-import { BarTrace, BaseTrace } from '../../../dist';
-import DoubleBar from '../../../dist/charts/DoubleBar';
+import { BarTrace, BaseTrace, DoubleBar } from '../../../dist';
 
 import './App.css';
 
