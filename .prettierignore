@@ -1,0 +1,8 @@
+.next
+.vercel
+.tsbuildinfo
+coverage
+dist
+node_modules
+
+**/*.d.ts

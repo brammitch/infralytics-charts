@@ -1,28 +1,29 @@
-import Color from "color";
-import merge from "lodash.merge";
-import { PlotData } from "plotly.js";
-import { useEffect, useState } from "react";
-import createPlotlyComponent from "react-plotly.js/factory";
-import Plotly from "../plotly";
-import { BarTrace, RangeTrace, ThresholdTrace } from "../types";
+import Color from 'color';
+import merge from 'lodash.merge';
+import { PlotData } from 'plotly.js';
+import { useEffect, useState } from 'react';
+import createPlotlyComponent from 'react-plotly.js/factory';
+import Plotly from '../plotly';
+import { BarTrace, BaseTrace } from '../types';
 
 const Plot = createPlotlyComponent(Plotly);
 
 export interface DoubleBarProps {
   b1: BarTrace;
   b2: BarTrace;
-  layoutProps?: Plotly.Layout;
+  layoutProps?: Partial<Plotly.Layout>;
   max?: number;
   range?: {
-    l: RangeTrace;
-    h: RangeTrace;
+    l: BaseTrace;
+    h: BaseTrace;
   };
-  t1?: ThresholdTrace;
-  t2?: ThresholdTrace;
+  t1?: BaseTrace;
+  t2?: BaseTrace;
   ticks?: {
     labels: string[];
     values: number[];
   };
+  x: string[];
 }
 
 export default function DoubleBar(props: DoubleBarProps) {
@@ -33,12 +34,12 @@ export default function DoubleBar(props: DoubleBarProps) {
     const _data: Partial<PlotData>[] = [
       {
         name: props.b1.name,
-        type: "bar",
-        yaxis: "y2",
+        type: 'bar',
+        yaxis: 'y2',
         hovertext: props.b1.hovertext ?? props.b1.name,
-        hoverinfo: "x+y+text",
+        hoverinfo: 'x+y+text',
         offset: -0.375,
-        x: props.b1.x,
+        x: props.x,
         y: props.b1.y,
         width: 0.4,
         marker: {
@@ -49,20 +50,20 @@ export default function DoubleBar(props: DoubleBarProps) {
           },
           opacity: 0.95,
           pattern: {
-            fillmode: "overlay",
+            fillmode: 'overlay',
             fgcolor: Color(props.b1.color).lighten(0.2).hex(),
-            shape: "/",
+            shape: '/',
             solidity: 0.1,
           },
         },
       },
       {
         name: props.b2.name,
-        type: "bar",
-        yaxis: "y2",
+        type: 'bar',
+        yaxis: 'y2',
         hovertext: props.b2.hovertext ?? props.b2.name,
-        hoverinfo: "x+y+text",
-        x: props.b2.x,
+        hoverinfo: 'x+y+text',
+        x: props.x,
         y: props.b2.y,
         width: 0.4,
         marker: {
@@ -73,9 +74,9 @@ export default function DoubleBar(props: DoubleBarProps) {
           },
           opacity: 0.95,
           pattern: {
-            fillmode: "overlay",
+            fillmode: 'overlay',
             fgcolor: Color(props.b2.color).lighten(0.2).hex(),
-            shape: "/",
+            shape: '/',
             solidity: 0.1,
           },
         },
@@ -85,10 +86,10 @@ export default function DoubleBar(props: DoubleBarProps) {
     if (props.range) {
       _data.push({
         name: props.range.l.name,
-        type: "scatter",
-        mode: "lines",
-        hoverinfo: "none",
-        x: props.range.l.x,
+        type: 'scatter',
+        mode: 'lines',
+        hoverinfo: 'none',
+        x: props.x,
         y: props.range.l.y,
         line: {
           width: 0,
@@ -101,10 +102,10 @@ export default function DoubleBar(props: DoubleBarProps) {
 
       _data.push({
         name: props.range.h.name,
-        type: "scatter",
-        mode: "lines",
-        hoverinfo: "none",
-        x: props.range.h.x,
+        type: 'scatter',
+        mode: 'lines',
+        hoverinfo: 'none',
+        x: props.x,
         y: props.range.h.y,
         line: {
           width: 0,
@@ -112,21 +113,21 @@ export default function DoubleBar(props: DoubleBarProps) {
         marker: {
           color: props.range.l.color,
         },
-        fill: "tonexty",
+        fill: 'tonexty',
       });
     }
 
     if (props.t1) {
       _data.push({
         name: props.t1.name,
-        type: "scatter",
-        mode: "lines",
-        hoverinfo: "none",
-        x: props.t1.x,
+        type: 'scatter',
+        mode: 'lines',
+        hoverinfo: 'none',
+        x: props.x,
         y: props.t1.y,
         line: {
           color: props.t1.color,
-          dash: "dash",
+          dash: 'dash',
           width: 2,
         },
         opacity: 0.8,
@@ -136,14 +137,14 @@ export default function DoubleBar(props: DoubleBarProps) {
     if (props.t2) {
       _data.push({
         name: props.t2.name,
-        type: "scatter",
-        mode: "lines",
-        hoverinfo: "none",
-        x: props.t2.x,
+        type: 'scatter',
+        mode: 'lines',
+        hoverinfo: 'none',
+        x: props.x,
         y: props.t2.y,
         line: {
           color: props.t2.color,
-          dash: "dash",
+          dash: 'dash',
           width: 2,
         },
         opacity: 0.8,
@@ -154,35 +155,35 @@ export default function DoubleBar(props: DoubleBarProps) {
     const values = _data
       .map((trace) => trace.y as number[])
       .flat()
-      .filter((y) => typeof y === "number");
+      .filter((y) => typeof y === 'number');
 
     const ymax = Math.ceil(Math.max(...values, props?.max ?? 0) / 0.1) * 0.1;
     const dtick = (ymax / 10.0).toFixed(3);
 
-    const xaxis: Plotly.Layout["xaxis"] = props.ticks
+    const xaxis: Plotly.Layout['xaxis'] = props.ticks
       ? {
-          tickmode: "array",
+          tickmode: 'array',
           tickvals: props.ticks.values,
           ticktext: props.ticks.labels,
         }
-      : { tickmode: "array" };
+      : { tickmode: 'array' };
 
-    const yaxis: Plotly.Layout["yaxis"] = {
+    const yaxis: Plotly.Layout['yaxis'] = {
       autotick: false,
       tick0: 0,
       dtick,
       range: [0, ymax],
-      griddash: "dash",
+      griddash: 'dash',
     };
 
-    const yaxis2: Plotly.Layout["yaxis"] = Object.assign({}, yaxis, {
-      overlaying: "y",
+    const yaxis2: Plotly.Layout['yaxis'] = Object.assign({}, yaxis, {
+      overlaying: 'y',
     });
 
-    const _layout: Plotly.Layout = merge(
+    const _layout: Partial<Plotly.Layout> = merge(
       {
         showlegend: true,
-        barmode: "group",
+        barmode: 'group',
         // font:
         // margin:
         xaxis,
@@ -203,14 +204,10 @@ export default function DoubleBar(props: DoubleBarProps) {
     props.t1,
     props.t2,
     props.ticks,
+    props.x,
   ]);
 
   return (
-    <Plot
-      data={data}
-      layout={layout}
-      useResizeHandler
-      style={{ width: "100%", height: "100%" }}
-    />
+    <Plot data={data} layout={layout} useResizeHandler style={{ width: '100%', height: '100%' }} />
   );
 }
