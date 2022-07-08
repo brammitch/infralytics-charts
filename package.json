@@ -1,6 +1,6 @@
 {
   "name": "@brammitch/plotly-react",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Plotly.js charts in React for Infralytics",
   "author": "Brandon M. Mitchell",
   "license": "MIT",
