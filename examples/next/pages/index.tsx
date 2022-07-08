@@ -68,7 +68,7 @@ const Home: NextPage = () => {
 
   const range: { l: BaseTrace; h: BaseTrace } = {
     l: {
-      color: '#64dd17',
+      color: '#69f0ae',
       y: [30, 30, 30, 30, 30, 30, 30],
     },
     h: {
