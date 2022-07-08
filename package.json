@@ -1,16 +1,16 @@
 {
-  "name": "infralytics-charts",
+  "name": "@brammitch/plotly-react",
   "version": "0.1.1",
   "description": "Plotly.js charts in React for Infralytics",
   "author": "Brandon M. Mitchell",
   "license": "MIT",
-  "homepage": "https://github.com/brammitch/infralytics-charts#readme",
+  "homepage": "https://github.com/brammitch/plotly-react#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brammitch/infralytics-charts.git"
+    "url": "git+https://github.com/brammitch/plotly-react.git"
   },
   "bugs": {
-    "url": "https://github.com/brammitch/infralytics-charts/issues"
+    "url": "https://github.com/brammitch/plotly-react/issues"
   },
   "workspaces": [
     "examples/cra",

@@ -1,5 +1,5 @@
 {
-  "name": "@infralytics-charts/lib",
+  "name": "lib",
   "private": true,
   "scripts": {
     "build": "npx rollup -c rollup.config.js",

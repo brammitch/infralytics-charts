@@ -63,7 +63,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Infralytics Charts</title>
-        <meta name="description" content="infralytics-charts example page" />
+        <meta name="description" content="@brammitch/plotly-react demo for Next.js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
