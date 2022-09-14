@@ -15,65 +15,65 @@ const Home: NextPage = () => {
   const x = ['', 'Site A', 'Site B', 'Site C', 'Site D', 'Site E', '-'];
   // ticks
   const values = [0, 1, 2, 3, 4, 5, 6];
-  const labels = ['', 'Site A', 'Site B', 'Site C', 'Site D', 'Site E', ''];
+  const labels = ['Site A', 'Site B', 'Site C', 'Site D', 'Site E'];
+  // y
+  const b1y: (string | number)[] = [35, 45, 65, 115, 25];
+  const b1hovertext: string[] = b1y.map((y) => `Allocated: ${y}`);
+  const b2y: (string | number)[] = [5, 40, 50, 85, 20];
+  const b2hovertext: string[] = b2y.map((y) => `Allocated: ${y}`);
+  const b3y: (string | number)[] = [30, 50, 80, 70, 70];
+  const b3hovertext: string[] = b3y.map((y) => `Allocated: ${y}`);
+  for (const arr of [b1y, b2y, b3y]) {
+    arr.unshift(' ');
+    arr.push(' ');
+  }
+
+  for (const arr of [b1hovertext, b2hovertext, b3hovertext]) {
+    arr.unshift(' ');
+    arr.push(' ');
+  }
 
   const b1: BarTrace = {
     name: 'Allocated',
     color: '#0097a7',
-    y: ['', 35, 45, 65, 115, 25, ''],
-    hovertext: [
-      '',
-      'Allocated: 15',
-      'Allocated: 33',
-      'Allocated: 64',
-      'Allocated: 115',
-      'Allocated: 26',
-      '',
-    ],
+    y: b1y,
+    hovertext: b1hovertext,
   };
 
   const b2: BarTrace = {
     name: 'Used',
     color: '#ff9800',
-    y: ['', 5, 40, 50, 85, 20, ''],
-    hovertext: ['', 'Used: 10', 'Used: 21', 'Used: 5', 'Used: 88', 'Used: 24', ''],
+    y: b2y,
+    hovertext: b2hovertext,
   };
 
   const b3: BarTrace = {
     name: 'Forecast',
     color: '#15d5d4',
-    y: ['', 30, 50, 80, 70, 70, ''],
-    hovertext: [
-      '',
-      'Forecast: 10',
-      'Forecast: 21',
-      'Forecast: 5',
-      'Forecast: 88',
-      'Forecast: 24',
-      '',
-    ],
+    y: b3y,
+    hovertext: b3hovertext,
   };
 
   const t1: BaseTrace = {
     name: 'Low',
     color: '#ffd740',
-    y: [80, 80, 80, 80, 80, 80, 80],
+    y: Array(7).fill(80),
   };
 
   const t2: BaseTrace = {
     name: 'High',
     color: '#ff5252',
-    y: [100, 100, 100, 100, 100, 100, 100],
+    y: Array(7).fill(100),
   };
 
   const range: { l: BaseTrace; h: BaseTrace } = {
     l: {
       color: '#69f0ae',
-      y: [30, 30, 30, 30, 30, 30, 30],
+      y: Array(7).fill(30),
     },
     h: {
       name: 'Optimal',
-      y: [65, 65, 65, 65, 65, 65, 65],
+      y: Array(7).fill(65),
     },
   };
 

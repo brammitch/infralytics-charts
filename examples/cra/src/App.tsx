@@ -14,11 +14,11 @@ function App() {
     y: ['', 35, 45, 65, 115, 25, ''],
     hovertext: [
       '',
-      'Allocated: 15',
-      'Allocated: 33',
-      'Allocated: 64',
+      'Allocated: 35',
+      'Allocated: 45',
+      'Allocated: 65',
       'Allocated: 115',
-      'Allocated: 26',
+      'Allocated: 25',
       '',
     ],
   };
@@ -27,7 +27,7 @@ function App() {
     name: 'Used',
     color: '#ff9800',
     y: ['', 5, 40, 50, 85, 20, ''],
-    hovertext: ['', 'Used: 10', 'Used: 21', 'Used: 5', 'Used: 88', 'Used: 24', ''],
+    hovertext: ['', 'Used: 5', 'Used: 40', 'Used: 50', 'Used: 85', 'Used: 20', ''],
   };
 
   const t1: BaseTrace = {
