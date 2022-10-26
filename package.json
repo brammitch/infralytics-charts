@@ -1,6 +1,6 @@
 {
   "name": "@brammitch/plotly-react",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Custom Plotly.js chart components for React",
   "author": "Brandon M. Mitchell",
   "license": "MIT",
