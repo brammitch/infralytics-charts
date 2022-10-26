@@ -1,4 +1,4 @@
-import { BarTrace, BaseTrace, DoubleBar } from '../../../dist';
+import { BarTrace, BaseTrace, Bar } from '../../../dist';
 
 import './App.css';
 
@@ -55,7 +55,14 @@ function App() {
 
   return (
     <div className="App">
-      <DoubleBar b1={b1} b2={b2} range={range} t1={t1} t2={t2} ticks={{ labels, values }} x={x} />
+      <Bar
+        traces={[b1, b2]}
+        range={range}
+        thresholdLow={t1}
+        thresholdHigh={t2}
+        ticks={{ labels, values }}
+        x={x}
+      />
     </div>
   );
 }
