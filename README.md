@@ -1,2 +1,3 @@
 # @brammitch/plotly-react
-Plotly.js charts in React for Infralytics
+
+Custom Plotly.js chart components for React.
