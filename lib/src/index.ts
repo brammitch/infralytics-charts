@@ -1,5 +1,5 @@
-import { DoubleBar, TripleBar } from './charts';
-import { BarTrace, BaseTrace } from './types';
+import { Bar } from './charts';
+import { BarProps, BarTrace, BaseTrace } from './types';
 
-export { DoubleBar, TripleBar };
-export type { BarTrace, BaseTrace };
+export { Bar };
+export type { BarProps, BarTrace, BaseTrace };

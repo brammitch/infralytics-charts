@@ -1,4 +1,3 @@
-import DoubleBar from './DoubleBar';
-import TripleBar from './TripleBar';
+import Bar from './Bar';
 
-export { DoubleBar, TripleBar };
+export { Bar };
